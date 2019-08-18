@@ -13,36 +13,6 @@ import os
 def uploadView(request):
     return render(request, "videoupload/better.html",{'media': settings.MEDIA_ROOT, 'form': NameForm()})
 
-def upload_file(request):
-    if request.method == 'POST':
-        def handle_uploaded_file(f):
-            with open(settings.MEDIA_ROOT+'/test.mp4', 'wb+') as destination:
-                for chunk in f.chunks():
-                    destination.write(chunk)
-        print("pause")
-        handle_uploaded_file(request.FILES['test.mp4'])
-        print("success")
-    form = NameForm()
-    return render(request, "videoupload/index.html",{'media': settings.MEDIA_ROOT, 'form': NameForm()})
-
-def get_name(request):
-    # if this is a POST request we need to process the form data
-    if request.method == 'POST':
-        #create a form instance and populate it with data from the
-            #request
-        form = NameForm(request.POST)
-        #check whether it's valid
-        if form.is_valid():
-            # process the data in form.cleaned_data
-            #redirect to better SUCCESS URL
-            return HttpResponseRedirect('/thanks/')
-        else:
-            #GET request will create an empty form instance
-                #and place it in a template context to be rendered
-            print("HERE!")
-            form = NameForm()
-            return render(request, 'videoupload/name.html', {'form' : form})
-
 def file_list(request):
     return render(request, "videoupload/videolist.html",
                       {'story_list': Video.objects.all()})
