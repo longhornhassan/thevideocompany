@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+{% for x in story_list %}
+<h2>
+  <a href="/polls/watch/{{x.name}}">
+    {{ x.name }}<br>
+  </a>
+</h2>
+{% endfor %}
+<a href="/polls">Return to upload screen</a>
+</html>
+<script>
+</script>

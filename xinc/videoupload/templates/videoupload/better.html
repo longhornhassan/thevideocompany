@@ -1,0 +1,11 @@
+
+<form enctype="multipart/form-data" action="/polls/uploadFile/" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="test.mp4" value="100000" />
+    {{form}}<br>
+    Choose a file to upload: <input name="test.mp4" type="file" /><br />
+    <input type="submit" value="Upload File" />
+</form>
+
+<a href="/polls/filelist"/> Or just view all videos <br>
+<a href="/polls/clear"/> Or Clear DB and all videos

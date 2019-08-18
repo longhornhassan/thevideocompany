@@ -1,13 +1,15 @@
-
+{{form}} here
 <form enctype="multipart/form-data" action="/polls/upload/" method="POST">
     {% csrf_token %}
 <input type="hidden" name="test.mp4" value="100000" />
-Choose a file to upload: <input name="test.mp4" type="file" /><br />
-<input type="submit" value="Upload File" />
+    File name: <input type="text" name="fname"><br>
+    Choose a file to upload: <input name="test.mp4" type="file" /><br />
+    <input type="submit" value="Upload File" />
 </form>
 
-<video width="320" height="240" controls>
-  <source src=/media/test.mp4 type="video/mp4">
-  <source src="movie.ogg" type="video/ogg">
-  Your browser does not support the video tag.
-</video>
+<a href="/polls/filelist" Or just view all videos!/>
+<a href="/polls/clear" Clear DB and Videos!/>
+
+
+
+
